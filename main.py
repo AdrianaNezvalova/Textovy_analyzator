@@ -1,9 +1,9 @@
-"""
+'''
 projekt_1.py: první projekt do Engeto Online Python Akademie
 
 author: Adriána Nezvalová
 email: adriana.nezvalova@gmail.com
-"""
+'''
 
 # source texts for the project
 TEXTS = [
@@ -73,6 +73,7 @@ else:
 
 '''TEXT ANALYSIS'''
 # word and number count
+analysed_text = analysed_text.replace(".", " ").replace(",", " ")
 text_list = analysed_text.split()
 word_count = len(text_list)
 titlecase_count = sum(1 for word in text_list if word.istitle())
