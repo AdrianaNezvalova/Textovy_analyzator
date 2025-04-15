@@ -5,7 +5,9 @@ author: Adriána Nezvalová
 email: adriana.nezvalova@gmail.com
 '''
 
-# source texts for the project
+''' SECONDARY VARIABLES '''
+# region
+
 TEXTS = [
     '''Situated about 10 miles west of Kemmerer,
     Fossil Butte is a ruggedly impressive
@@ -34,10 +36,13 @@ TEXTS = [
     garpike and stingray are also present.'''
 ]
 
-''' SECONDARY VARIABLES '''
 dashes = " ----------------------------------------"
 
+# endregion
+
 ''' USER LOGIN '''
+# region
+
 # user input
 print("\n")
 user = input(" username: ")
@@ -57,7 +62,11 @@ else:
     print(f" unregistered user, terminating the program..")
     exit()
 
+# endregion
+
 ''' CHOOSING TEXT '''
+# region
+
 # let the user choose the text to analyse
 choice = input(" Enter a number btw. 1 and 3 to select: ")
 print(dashes)
@@ -71,7 +80,11 @@ if not choice.isdigit() or int(choice) not in range(1, 4):
 else:
     analysed_text = TEXTS[int(choice) - 1]
 
+# endregion
+
 '''TEXT ANALYSIS'''
+# region
+
 # word and number count
 analysed_text = analysed_text.replace(".", " ").replace(",", " ")
 text_list = analysed_text.split()
@@ -90,17 +103,58 @@ for word in text_list:
     else:
         word_length_count[len(word)] += 1
 
+# endregion
+
 ''''PRINT RESULTS'''
-print(f" There are {word_count} words in the selected text.")
-print(f" There are {titlecase_count} titlecase words.")
-print(f" There are {uppercase_count} uppercase words.")
-print(f" There are {lowercase_count} lowercase words.")
-print(f" There are {numbers_count} numeric strings.")
+# region 
+
+# word count
+if word_count == 1:
+    print(f" There is {word_count} word in the selected text.")
+else:
+    print(f" There are {word_count} words in the selected text.")
+
+# titlecase count
+if titlecase_count == 1:
+    print(f" There is {titlecase_count} titlecase word.")
+elif titlecase_count == 0:
+    print(f" There are no titlecase words.")
+else:
+    print(f" There are {titlecase_count} titlecase words.")
+
+# uppercase count
+if uppercase_count == 1:
+    print(f" There is {uppercase_count} uppercase word.")
+elif uppercase_count == 0:
+    print(f" There are no uppercase words.")
+else:
+    print(f" There are {uppercase_count} uppercase words.")
+
+# lowercase count
+if lowercase_count == 1:
+    print(f" There is {lowercase_count} lowercase word.")
+elif lowercase_count == 0:
+    print(f" There are no lowercase words.")
+else:
+    print(f" There are {lowercase_count} lowercase words.")
+
+# numbers count
+if numbers_count == 1:
+    print(f" There is {numbers_count} numeric string.")
+elif numbers_count == 0:
+    print(f" There are no numeric strings.")
+else:
+    print(f" There are {numbers_count} numeric strings.")
+
+# sum of numbers
 print(f" The sum of all the numbers is {numbers_sum}.")
 print(dashes)
-print(f" LEN|  OCCURENCES  |NR.")
+
+# word length count
+print(f" LEN|  OCCURENCES      |NR.")
 print(dashes)
 for key, value in sorted(word_length_count.items()):
-    print(f"{key:>3}|{'*' * value:<15}|{value}")
-print("\n")
-    
+    print(f"{key:>4}|{'*' * value:<18}|{value}")
+print("\n")  
+
+# endregion
