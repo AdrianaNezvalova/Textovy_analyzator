@@ -36,6 +36,8 @@ TEXTS = [
     garpike and stingray are also present.'''
 ]
 
+number_of_texts = len(TEXTS)
+
 dashes = " ----------------------------------------"
 
 # endregion
@@ -68,11 +70,11 @@ else:
 # region
 
 # let the user choose the text to analyse
-choice = input(" Enter a number btw. 1 and 3 to select: ")
+choice = input(f" Enter a number btw. 1 and {number_of_texts}: ")
 print(dashes)
 
 # if user chooses anything else than 1-3 - warning, terminate the program
-if not choice.isdigit() or int(choice) not in range(1, 4):
+if not choice.isdigit() or int(choice) not in range(1, (number_of_texts + 1)):
     print(f" Invalid choice, terminating the program..")
     exit()
 
